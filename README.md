@@ -57,6 +57,41 @@ Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volu
 └──────────────────────────┘ └──────────────────────────┘
 ```
 
+
+## Project Directory Structure
+
+```text
+SOC_AGENT/
+│
+├── app/                        # Main application package
+│   ├── __init__.py
+│   │
+│   ├── agent/                  # AI Core (The brains of the system)
+│   │   ├── __init__.py
+│   │   ├── pydantic_agent.py   # Agent definition, system prompts, and LLM setup
+│   │   └── schemas.py          # Pydantic models for structured JSON outputs
+│   │
+│   ├── core/                   # System configuration and security controls
+│   │   ├── __init__.py
+│   │   ├── config.py           # Environment variables, LM Studio URLs, and API keys
+│   │   └── sanitization.py     # Log scrubbing and input sanitization (Regex pipeline)
+│   │
+│   ├── database/               # Semantic memory and retrieval
+│   │   ├── __init__.py
+│   │   └── vector_db.py        # ChromaDB logic (RAG integration & context retrieval)
+│   │
+│   └── main.py                 # FastAPI server application entrypoint & API routing
+│
+├── data/                       # Directory for offline evaluation data
+│   └── raw_logs_samples.json   # Simulated or downloaded log datasets (Kaggle/GitHub)
+│
+├── tests/                      # Simulation scripts and operational testing
+│   └── mock_attacker.py        # Python script to simulate real-time cyber attacks (Postman alternative)
+│
+├── .gitignore                  # Prevents committing venv, cache, and DB storage to GitHub
+├── README.md                   # Comprehensive project documentation
+└── requirements.txt            # Project dependencies and package versions
+
 # Tech Stack 
  LLM , RA & Vector DBs, API
 - LLM
