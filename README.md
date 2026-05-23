@@ -56,3 +56,15 @@ Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volu
 │    for approval          │ │    Host via Firewall API │
 └──────────────────────────┘ └──────────────────────────┘
 ```
+
+# Tech Stack 
+ LLM , RA & Vector DBs, API
+- LLM
+- LM Studio
+- FastAPI
+- Webhook
+- POSTMAN
+- n8n
+- vs code
+- Vector Database
+- RAG
