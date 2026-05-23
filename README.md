@@ -91,6 +91,7 @@ SOC_AGENT/
 ├── .gitignore                  # Prevents committing venv, cache, and DB storage to GitHub
 ├── README.md                   # Comprehensive project documentation
 └── requirements.txt            # Project dependencies and package versions
+```
 
 # Tech Stack 
  LLM , RA & Vector DBs, API
