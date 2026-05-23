@@ -104,3 +104,5 @@ SOC_AGENT/
 - vs code
 - Vector Database
 - RAG
+- chromadb
+- uvicorn
