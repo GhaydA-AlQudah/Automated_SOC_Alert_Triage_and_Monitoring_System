@@ -24,6 +24,12 @@ Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volu
 * **High Operational Costs:** Scaling a 24/7 SOC team to handle Tier-1 (L1) log triaging requires massive human capital and constant resource draining.
 * **Data Privacy Risks:** Forwarding raw security logs directly to public cloud AI models (like OpenAI API) exposes sensitive internal corporate data (PII, internal IPs, and architecture secrets) to third-party leakage.
 ---
+
+# The Solution
+
+<img width="1757" height="563" alt="image" src="https://github.com/user-attachments/assets/d605e2a6-49d3-43f1-a52c-3c21013fc02f" />
+
+
 # Cyber Attack Detection & Automated Response Pipeline
 
 ```text
