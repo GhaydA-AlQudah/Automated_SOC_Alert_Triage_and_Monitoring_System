@@ -112,3 +112,14 @@ SOC_AGENT/
 
 ---
 why this llm?
+
+---
+Security
+1 local LLM - LM Studio 
+2 Local Embedding 
+3 local grafana dashboard
+
+---
+optimization
+1 Just suspecious arrived to llm and correlated
+2 calling tools just if neccessarfy  otherwise automation
