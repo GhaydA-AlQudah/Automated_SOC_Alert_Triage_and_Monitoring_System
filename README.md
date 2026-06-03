@@ -75,7 +75,9 @@ Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volu
 │    for approval          │ │    Host via Firewall API │
 └──────────────────────────┘ └──────────────────────────┘
 ```
-
+# Architecture 
+- Race Condition
+- - Bottleneck
 
 ## Project Directory Structure
 
