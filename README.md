@@ -2,23 +2,15 @@
 
 
 # Problem Statement
+
+1 vast amount of false positive alerts
+Modern Security Information and Event Management (SIEM) systems generate thousands of security alerts every day. Although these alerts are essential for detecting potential cyber threats, a significant percentage of them are false positives, duplicated events, or low-priority notifications. As a result, SOC analysts spend a considerable amount of time manually investigating alerts that do not require immediate action.
+
 🚨 The Problem: Fighting Automated Threats with Manual Operations
-In today’s cybersecurity landscape, modern attackers are leveraging automation, advanced scanning tools, and AI to orchestrate rapid, sophisticated campaigns.
 
-Traditional Security Operations Centers (SOCs) are losing this race due to three critical bottlenecks:
-
-Asymmetric Speed (AI vs. Humans): Cyberattacks now happen at machine speed. Relying on human analysts to manually detect patterns, query databases, and investigate logs introduces dangerous latency. You cannot fight automated, AI-driven threats with slow, manual human intervention.
-
-The Alert Fatigue Crisis: Security teams are drowned in an endless stream of isolated, noisy logs. Sorting through thousands of raw events to find a single genuine threat leads to severe analyst burnout and missed attacks.
-
-Lack of Intelligent Context: Traditional systems look at logs in isolation. They lack the stateful reasoning required to correlate trickle-feeding anomalies into a coherent threat narrative.
-
-The Bottom Line: To defeat automated, AI-powered adversaries, our defense systems must adapt. We need to fight fire with fire—replacing manual parsing with an autonomous, real-time, and AI-driven investigation pipeline.
-
-
-Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volume of security logs and alerts generated across enterprise networks. Human analysts spend a massive amount of time triaging low-level alerts, leading to critical operational bottlenecks.
 
 ### What happens without this solution? (The Consequences)
+missing the essential true positive 
 * **Alert Fatigue & Missed Breaches:** Analysts get buried under thousands of daily alerts, allowing actual, sophisticated cyber attacks to slip through unnoticed.
 * **Delayed Incident Response Time (MTTR):** Manually investigating raw, unstructured logs takes hours, giving attackers ample time to move laterally and compromise critical assets.
 * **High Operational Costs:** Scaling a 24/7 SOC team to handle Tier-1 (L1) log triaging requires massive human capital and constant resource draining.
@@ -27,7 +19,7 @@ Modern Security Operations Centers (SOCs) are overwhelmed by an exponential volu
 
 # The Solution
 
-<img width="1757" height="563" alt="image" src="https://github.com/user-attachments/assets/d605e2a6-49d3-43f1-a52c-3c21013fc02f" />
+<img width="1715" height="632" alt="image" src="https://github.com/user-attachments/assets/8373ec21-c241-4775-bc13-cd871ae882ee" />
 
 
 # Cyber Attack Detection & Automated Response Pipeline
