@@ -1,5 +1,5 @@
 # CyberSentinel-An-Autonomous-AI-Driven-SOC-L1-Analyst-using-RAG-and-n8n.
-
+model, prompt, threat intelligence, V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  clean code, loggers, docs, comments, error handling
 
 # Problem Statement
 
