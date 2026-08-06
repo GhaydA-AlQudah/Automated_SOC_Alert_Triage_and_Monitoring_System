@@ -138,6 +138,9 @@ optimization
 2 calling tools just if neccessarfy  otherwise automation
 ---
 Example
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de6e98f5-f19b-4037-bdca-fd4fb8ece748" />
+
 ---
 how to use
 ---
