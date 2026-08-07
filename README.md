@@ -71,7 +71,8 @@ missing the essential true positive
 * why chroma db
 * why x llm
 * why grafana
-* 
+* why pydantic
+* why pydantic ai
 # Architecture 
 - Race Condition
 - - Bottleneck
