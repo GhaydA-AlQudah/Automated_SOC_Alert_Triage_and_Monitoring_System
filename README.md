@@ -67,6 +67,11 @@ missing the essential true positive
 │    for approval          │ │    Host via Firewall API │
 └──────────────────────────┘ └──────────────────────────┘
 ```
+
+* why chroma db
+* why x llm
+* why grafana
+* 
 # Architecture 
 - Race Condition
 - - Bottleneck
