@@ -1,6 +1,6 @@
 # CyberSentinel-An-Autonomous-AI-Driven-SOC-L1-Analyst-using-RAG-and-n8n.
 model, prompt, threat intelligence, V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  clean code, loggers, docs, comments, error handling
-
+شو الي بندخله لل LLM ما تكرري وما تدخلي اشي ماله داعي 
 # Problem Statement
 
 1 vast amount of false positive alerts
@@ -136,6 +136,7 @@ Security
 optimization
 1 Just suspecious arrived to llm and correlated
 2 calling tools just if neccessarfy  otherwise automation
+3 شو بدخل لل LLM
 ---
 Example
 
