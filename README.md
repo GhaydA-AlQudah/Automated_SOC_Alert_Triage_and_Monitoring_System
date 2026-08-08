@@ -18,8 +18,6 @@ As a result, SOC analysts spend valuable time manually investigating alerts that
   
   Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
 
-**The goal isn't to replace the SOC analyst.
-It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 ## Impact
 
@@ -36,10 +34,14 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 # The Solution
 
+Agentic workflow
+**The goal isn't to replace the SOC analyst.
+It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
+
 <img width="1692" height="537" alt="image" src="https://github.com/user-attachments/assets/f995c466-f048-4f5b-9f6a-9febe1b4af9a" />
 
 
-# Cyber Attack Detection & Automated Response Pipeline
+## Cyber Attack Detection & Automated Response Pipeline
 
 ```text
 Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
@@ -59,7 +61,8 @@ Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
                                     Email SOC Team    No Action
                                           │
                                           ▼
-                                  Grafana Dashboard```
+                                  Grafana Dashboard
+```
 # Features:
 * why chroma db
 * why x llm
