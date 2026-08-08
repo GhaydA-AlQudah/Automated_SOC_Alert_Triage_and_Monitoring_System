@@ -1,21 +1,22 @@
 # CyberSentinel — AI-Powered Automated SOC Alert Triage & Threat Monitoring
 
 # Problem Statement
+
 1. Vast Amount of False Positive Alerts
 
-Modern SIEM systems generate thousands of security alerts every day. A large portion of these alerts may be legitimate activity, expected administrative behavior, automated scanners, or low-risk events.
+  Modern SIEM systems generate thousands of security alerts every day. A large portion of these alerts may be legitimate activity, expected administrative behavior, automated scanners, or low-risk events.
 
 As a result, SOC analysts spend valuable time manually investigating alerts that ultimately require no action.
 
 2. Fighting Automated Threats with Manual Operations
 
-Although attacks are increasingly automated, L1 SOC investigation is still heavily manual.
-
-For every suspicious alert, analysts may need to:
-
-Review logs → Check IP reputation → Investigate context → Compare historical incidents → Decide → Document → Escalate
-
-Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
+  Although attacks are increasingly automated, L1 SOC investigation is still heavily manual.
+  
+  For every suspicious alert, analysts may need to:
+  
+  Review logs → Check IP reputation → Investigate context → Compare historical incidents → Decide → Document → Escalate
+  
+  Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
 
 **The goal isn't to replace the SOC analyst.
 It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
