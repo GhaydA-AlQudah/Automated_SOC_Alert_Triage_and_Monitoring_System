@@ -42,48 +42,24 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 # Cyber Attack Detection & Automated Response Pipeline
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│                   Postman (Simulator)                  │
-│  - Simulates the cyber attack                          │
-│  - Sends raw log payload via HTTP POST                 │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           │ HTTP POST Request (Raw Log)
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│                 n8n Webhook Node (Listener)            │
-│  - Triggers the workflow instantly upon receiving log  │
-│  - Forwards the payload to the FastAPI backend         │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           │ HTTP POST Request
-                           │ (Sanitized Payload)
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│                 FastAPI Server (Python)                │
-│  - Data Sanitization (Masking PII/Sensitive Data)      │
-│  - Executes RAG using ChromaDB Vector Database         │
-│  - Pydantic AI Agent analyzes context & decides        │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           │ JSON Response
-                           │ (is_attack, risk_level, summary)
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│           n8n Automation Pipeline (Orchestrator)       │
-│  - Routes decision via Conditional Logic               │
-│  - If attack detected → triggers response actions      │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-              ┌────────────┴────────────┐
-              ▼                         ▼
-┌──────────────────────────┐ ┌──────────────────────────┐
-│     Incident Dashboard   │ │  Automated Mitigation    │
-│  - Alerts SOC Analyst    │ │  - Blocks Malicious IP   │
-│  - Human-in-the-Loop UI  │ │  - Isolates Compromised  │
-│    for approval          │ │    Host via Firewall API │
-└──────────────────────────┘ └──────────────────────────┘
-```
+Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
+                                                   │
+                              n8n Enrichment ◄─────┘
+        (AbuseIPDB + VirusTotal + AlienVault OTX)
+                                                   │
+                                                   ▼
+                                    api.py + Pydantic AI Agent
+                                    (RAG via ChromaDB)
+                                                   │
+                                                   ▼
+                                          PostgreSQL (verdict)
+                                          │              │
+                                   TP/Needs Review    False Positive
+                                          │              │
+                                    Email SOC Team    No Action
+                                          │
+                                          ▼
+                                  Grafana Dashboard```
 # Features:
 * why chroma db
 * why x llm
