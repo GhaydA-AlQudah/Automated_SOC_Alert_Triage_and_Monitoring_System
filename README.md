@@ -1,4 +1,5 @@
-# CyberSentinel-An-Autonomous-AI-Driven-SOC-L1-Analyst-using-RAG-and-n8n.
+# CyberSentinel — AI-Powered Automated SOC Alert Triage & Threat Monitoring
+
 # Problem Statement
 1. Vast Amount of False Positive Alerts
 
@@ -34,7 +35,7 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 # The Solution
 
-<img width="1715" height="632" alt="image" src="https://github.com/user-attachments/assets/8373ec21-c241-4775-bc13-cd871ae882ee" />
+<img width="1692" height="537" alt="image" src="https://github.com/user-attachments/assets/f995c466-f048-4f5b-9f6a-9febe1b4af9a" />
 
 
 # Cyber Attack Detection & Automated Response Pipeline
@@ -82,13 +83,26 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 │    for approval          │ │    Host via Firewall API │
 └──────────────────────────┘ └──────────────────────────┘
 ```
-Features:
+# Features:
 * why chroma db
 * why x llm
 * why grafana
 * why pydantic
 * why pydantic ai
-
+ Tech Stack 
+ LLM , RA & Vector DBs, API
+- LLM
+- LM Studio
+- FastAPI
+- Webhook
+- POSTMAN
+- n8n
+- vs code
+- Vector Database
+- RAG
+- chromadb
+- uvicorn
+- Postman
 ---
 Example
 
@@ -144,20 +158,6 @@ SOC_AGENT/
 └── requirements.txt            # Project dependencies and package versions
 ```
 
-# Tech Stack 
- LLM , RA & Vector DBs, API
-- LLM
-- LM Studio
-- FastAPI
-- Webhook
-- POSTMAN
-- n8n
-- vs code
-- Vector Database
-- RAG
-- chromadb
-- uvicorn
-- Postman
 ---
 # Author
 **GhaydA' Alqudah**
