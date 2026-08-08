@@ -3,19 +3,33 @@ model, prompt, threat intelligence, V DB, ترتيب الكود ولملمتهو
 شو الي بندخله لل LLM ما تكرري وما تدخلي اشي ماله داعي 
 شو السيناريوهات يلي بكون فيها  FP  بالعادة
 # Problem Statement
+1. Vast Amount of False Positive Alerts
 
-1 vast amount of false positive alerts
-Modern Security Information and Event Management (SIEM) systems generate thousands of security alerts every day. Although these alerts are essential for detecting potential cyber threats, a significant percentage of them are false positives, duplicated events, or low-priority notifications. As a result, SOC analysts spend a considerable amount of time manually investigating alerts that do not require immediate action.
+Modern SIEM systems generate thousands of security alerts every day. A large portion of these alerts may be legitimate activity, expected administrative behavior, automated scanners, or low-risk events.
 
-🚨 The Problem: Fighting Automated Threats with Manual Operations
+As a result, SOC analysts spend valuable time manually investigating alerts that ultimately require no action.
 
+2. Fighting Automated Threats with Manual Operations
 
-### What happens without this solution? (The Consequences)
-missing the essential true positive 
-* **Alert Fatigue & Missed Breaches:** Analysts get buried under thousands of daily alerts, allowing actual, sophisticated cyber attacks to slip through unnoticed.
-* **Delayed Incident Response Time (MTTR):** Manually investigating raw, unstructured logs takes hours, giving attackers ample time to move laterally and compromise critical assets.
-* **High Operational Costs:** Scaling a 24/7 SOC team to handle Tier-1 (L1) log triaging requires massive human capital and constant resource draining.
-* **Data Privacy Risks:** Forwarding raw security logs directly to public cloud AI models (like OpenAI API) exposes sensitive internal corporate data (PII, internal IPs, and architecture secrets) to third-party leakage.
+Although attacks are increasingly automated, L1 SOC investigation is still heavily manual.
+
+For every suspicious alert, analysts may need to:
+
+Review logs → Check IP reputation → Investigate context → Compare historical incidents → Decide → Document → Escalate
+
+Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
+
+## Impact
+
+This leads to:
+
+Alert Fatigue — Analysts become overwhelmed by repetitive alerts.
+Delayed Response — Time spent investigating false positives means less time for genuine threats.
+Missed Threats — Critical alerts can be buried among large volumes of noise.
+High Operational Cost — More analyst time is required to maintain continuous SOC operations.
+
+The real problem isn't that SOCs lack alerts — it's that analysts lack the time to investigate all of them effectively.
+
 ---
 
 # The Solution
@@ -68,15 +82,20 @@ missing the essential true positive
 │    for approval          │ │    Host via Firewall API │
 └──────────────────────────┘ └──────────────────────────┘
 ```
-
+Features:
 * why chroma db
 * why x llm
 * why grafana
 * why pydantic
 * why pydantic ai
-# Architecture 
-- Race Condition
-- - Bottleneck
+
+---
+Example
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de6e98f5-f19b-4037-bdca-fd4fb8ece748" />
+
+---
+how to use
 
 ## Project Directory Structure
 
@@ -144,13 +163,6 @@ optimization
 1 Just suspecious arrived to llm and correlated
 2 calling tools just if neccessarfy  otherwise automation
 3 شو بدخل لل LLM
----
-Example
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de6e98f5-f19b-4037-bdca-fd4fb8ece748" />
-
----
-how to use
 ---
 # Author
 **GhaydA' Alqudah**
