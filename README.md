@@ -1,7 +1,4 @@
 # CyberSentinel-An-Autonomous-AI-Driven-SOC-L1-Analyst-using-RAG-and-n8n.
-model, prompt, threat intelligence, V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  clean code, loggers, docs, comments, error handling
-شو الي بندخله لل LLM ما تكرري وما تدخلي اشي ماله داعي 
-شو السيناريوهات يلي بكون فيها  FP  بالعادة
 # Problem Statement
 1. Vast Amount of False Positive Alerts
 
@@ -18,6 +15,9 @@ For every suspicious alert, analysts may need to:
 Review logs → Check IP reputation → Investigate context → Compare historical incidents → Decide → Document → Escalate
 
 Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
+
+**The goal isn't to replace the SOC analyst.
+It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 ## Impact
 
@@ -97,6 +97,18 @@ Example
 ---
 how to use
 
+---
+Security
+1 local LLM - LM Studio 
+2 Local Embedding 
+3 local grafana dashboard
+
+---
+optimization
+1 Just suspecious arrived to llm and correlated
+2 calling tools just if neccessarfy  otherwise automation
+3 شو بدخل لل LLM
+
 ## Project Directory Structure
 
 ```text
@@ -146,25 +158,10 @@ SOC_AGENT/
 - chromadb
 - uvicorn
 - Postman
-----
-🧠 Why Vector Database? (Agentic RAG Architecture)While Large Language Models (LLMs) are excellent at recognizing generic attack patterns, they operate in isolation—lacking context about internal infrastructure, evolving zero-day threats, and historical organizational triage.Integrating a Vector Database provides the SOC Agent with a Long-term Cyber Memory through Retrieval-Augmented Generation (RAG):1. Organizational Context & False Positive ReductionWhitelisting: Stores internal system contexts, trusted administrative IP spaces, and scheduled vulnerability scanners.Internal Policies: Feeds localized security compliance baselines (e.g., flagging off-hour authentications from external regions as critical) directly into the agent's prompt context.2. Live Threat Intelligence (Beyond Static Weights)Dynamic Knowledge Updates: Constantly ingests updated threat feeds, newly published CVEs, and evolving frameworks like MITRE ATT&CK or OWASP Top 10.Zero-Day Pattern Matching: Allows the agent to query raw log behaviors against newly uncovered advanced persistent threat (APT) tactics without requiring model retraining.3. Historical Incident Case-Base (Few-Shot Security Triage)Similarity Search ($Cosine\ Similarity$): When a complex, obfuscated log pattern emerges, the database surfaces historically archived incidents handled by human analysts.Contextual Learning: Employs Few-Shot Learning by supplying past mitigation playbooks (e.g., "We saw this pattern last month; the response was to block port X") to the LLM to guarantee optimized, consistent incident response.
-
----
-why this llm?
-
----
-Security
-1 local LLM - LM Studio 
-2 Local Embedding 
-3 local grafana dashboard
-
----
-optimization
-1 Just suspecious arrived to llm and correlated
-2 calling tools just if neccessarfy  otherwise automation
-3 شو بدخل لل LLM
 ---
 # Author
 **GhaydA' Alqudah**
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
+
+model, prompt, V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  clean code, loggers, docs, comments, error handling  شو السيناريوهات يلي بكون فيها  FP  بالعادة
