@@ -166,3 +166,9 @@ SOC_AGENT/
 **Computer Engineer | AI & Cyber Security Enthusiast**
 
 model, prompt, V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  clean code, loggers, docs, comments, error handling  شو السيناريوهات يلي بكون فيها  FP  بالعادة
+
+
+# Upload 
+- db
+- vs code
+- n8n 
