@@ -35,6 +35,9 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 # The Solution
 
 Agentic workflow
+Dashboard
+Email
+
 **The goal isn't to replace the SOC analyst.
 It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
