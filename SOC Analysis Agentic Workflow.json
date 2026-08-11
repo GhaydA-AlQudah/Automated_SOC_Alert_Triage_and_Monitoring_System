@@ -1,0 +1,449 @@
+{
+  "name": "SOC Analysis Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8001/api/v1/analyze",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.alert }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -464,
+        -512
+      ],
+      "id": "9488f01c-39cf-442f-a868-1935cb686169",
+      "name": "Pydantic AI Agent"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "119e70d1-0388-4a51-91d8-6b097ec1caa1",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1808,
+        -720
+      ],
+      "id": "491a43f3-a666-4a12-8602-f9fe23b7c1af",
+      "name": "Webhook",
+      "webhookId": "119e70d1-0388-4a51-91d8-6b097ec1caa1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "=https://www.virustotal.com/api/v3/ip_addresses/{{ $json.alert.src_ip }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1200,
+        -368
+      ],
+      "id": "b7b6dd32-2c42-4b8e-9da1-3cd626915717",
+      "name": "VirusTotal",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "uvkWv3aLDenYdKy0",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.abuseipdb.com/api/v2/check",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "ipAddress",
+              "value": "={{ $json.alert.src_ip }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1200,
+        -656
+      ],
+      "id": "4226d355-ef59-4bea-8235-a718fd9b07f9",
+      "name": "AbuseIPDB",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "OOXYpavC8iPiAhDJ",
+          "name": "Header Auth account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://otx.alienvault.com/api/v1/indicators/IPv4/{{ $json.alert.src_ip }}/general",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1200,
+        -512
+      ],
+      "id": "98d4567b-f6bd-4c90-a24a-2955f74c4f9e",
+      "name": "AlienVault OTX",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "5tElYb2NOYHUW1Id",
+          "name": "Header Auth account 3"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:8000/api/v1/get_oldest_pending_alert",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1616,
+        -512
+      ],
+      "id": "b5bd8ab8-31b7-4d1a-ab04-2d703c16fa82",
+      "name": "Retrieve Pended Alerts"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/api/v1/update_threat_intelligence",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n{\n  alert_id: $('Retrieve Pended Alerts').first().json.alert.alert_id,\n\n  threat_intelligence: {\n    abuseipdb: {\n      abuseConfidenceScore: $json.abuseipdb?.abuseConfidenceScore ?? 0,\n      totalReports: $json.abuseipdb?.totalReports ?? 0,\n      isTor: $json.abuseipdb?.isTor ?? false,\n      isWhitelisted: $json.abuseipdb?.isWhitelisted ?? false,\n      countryCode: $json.abuseipdb?.countryCode ?? null\n    },\n\n    alienvault: {\n      reputation: $json.alienvault?.reputation ?? 0,\n      pulse_count: $json.alienvault?.pulse_count ?? 0,\n      pulse_names: $json.alienvault?.pulse_names ?? \"\",\n      adversary: $json.alienvault?.adversary ?? \"\",\n      malware_families: $json.alienvault?.malware_families ?? \"\"\n    },\n\n    virustotal: {\n      malicious: $json.virustotal?.malicious ?? 0,\n      suspicious: $json.virustotal?.suspicious ?? 0,\n      undetected: $json.virustotal?.undetected ?? 0,\n      harmless: $json.virustotal?.harmless ?? 0,\n      timeout: $json.virustotal?.timeout ?? 0\n    }\n  }\n}\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -640,
+        -512
+      ],
+      "id": "4c8c6b6e-e651-48aa-81b0-14eda5296d51",
+      "name": "Alert Enrichment"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/api/v1/insert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $json.body.timestamp }}"
+            },
+            {
+              "name": "log_source",
+              "value": "={{ $json.body.log_source }}"
+            },
+            {
+              "name": "raw_log",
+              "value": "={{ $json.body.raw_log }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1616,
+        -720
+      ],
+      "id": "7d512ba0-4ead-4e0e-a149-b49774a4d6fa",
+      "name": "Insert into Pended Alerts"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b9f0abed-8950-4b59-8f21-669a1da7c31d",
+              "leftValue": "={{ $json.analysis.llm_classification }}",
+              "rightValue": "True Positive",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "c1522b45-0496-4e94-8e48-69a9590fc95d",
+              "leftValue": "={{ $json.analysis.llm_classification }}",
+              "rightValue": "Needs Review",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -304,
+        -512
+      ],
+      "id": "2503410e-09b7-4afe-84a8-145ade679ba2",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "sendTo": "alqudahghayda@gmail.com",
+        "subject": "={{ $json.analysis.llm_classification }} Alert - {{ $json.alert_id }}",
+        "message": "=<h2>🚨 SOC Alert Triage Notification</h2>  <p><strong>Alert ID:</strong> {{ $json.alert_id }}</p> <p><strong>Classification:</strong> {{ $json.analysis.llm_classification }}</p> <p><strong>Confidence:</strong> {{ $json.analysis.llm_confidence }}%</p>  <hr>  <h3>Technical Reason</h3> <p>{{ $json.analysis.llm_reason }}</p>  <h3>Recommended Action</h3> <p>{{ $json.analysis.llm_recommendation }}</p>  <hr>  <p><em>This alert was automatically triaged by the SOC AI Agent. Please review and take appropriate action.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -112,
+        -640
+      ],
+      "id": "c6354619-03f8-4612-89ee-08df4180582c",
+      "name": "Send a message",
+      "webhookId": "44a46f9b-f14b-4d1b-bfc7-f6602b407d51",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "3GAe4IutZo36d5a8",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "numberInputs": 3,
+        "query": "SELECT \n  input1.data AS abuseipdb,\n  input2.otx_data AS alienvault,\n  input3.data.attributes.last_analysis_stats AS virustotal\nFROM input1 \nLEFT JOIN input2 ON 1=1\nLEFT JOIN input3 ON 1=1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -816,
+        -528
+      ],
+      "id": "12304b48-d5f0-4502-aa78-931f2b4a2c2e",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\n\nconst fields = {\n  whois: item.whois,\n  reputation: item.reputation,\n  indicator: item.indicator,\n  type: item.type,\n  asn: item.asn,\n  city: item.city,\n  country_name: item.country_name,\n  pulse_count: item.pulse_info?.count,\n  pulse_names: (item.pulse_info?.pulses || []).map(p => p.name).join(', '),\n  adversary: (item.pulse_info?.related?.alienvault?.adversary || []).join(', '),\n  malware_families: (item.pulse_info?.related?.alienvault?.malware_families || []).join(', ')\n};\n\nreturn [{\n  json: {\n    otx_data: fields\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1024,
+        -512
+      ],
+      "id": "d4ce78c1-4019-4285-870f-cf6533ef10bc",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "963dc22d-81ee-45a1-a4fe-a95fe34b2519",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1808,
+        -512
+      ],
+      "id": "3056f9a6-9eae-4a97-bf70-3342660768b1",
+      "name": "Webhook1",
+      "webhookId": "963dc22d-81ee-45a1-a4fe-a95fe34b2519"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Pydantic AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Insert into Pended Alerts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VirusTotal": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "AbuseIPDB": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve Pended Alerts": {
+      "main": [
+        [
+          {
+            "node": "AbuseIPDB",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AlienVault OTX",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "VirusTotal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AlienVault OTX": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Enrichment": {
+      "main": [
+        [
+          {
+            "node": "Pydantic AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert into Pended Alerts": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Alert Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Retrieve Pended Alerts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "f23c5af0-868a-4b63-9504-33d00a105b0f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "425d0cc9e497a902a82f8c151213598d9b64d8566fd598f3c8b66916dc33eb02"
+  },
+  "id": "kqcOrJuPSD79VQ21",
+  "tags": []
+}
