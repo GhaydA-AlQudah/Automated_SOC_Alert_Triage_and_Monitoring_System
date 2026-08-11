@@ -85,6 +85,7 @@ Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
 - RAG
 - chromadb
 - uvicorn
+- aistudio.google
 - Postman
 ---
 Example
