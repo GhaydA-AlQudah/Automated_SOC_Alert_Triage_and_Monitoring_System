@@ -148,7 +148,7 @@ SOC_AGENT/
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
 
-V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  شو السيناريوهات يلي بكون فيها  FP  بالعادة
+V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  شو السيناريوهات يلي بكون فيها  FP  و لو  LLM  فشلبالعادة
 
 
 # Upload 
