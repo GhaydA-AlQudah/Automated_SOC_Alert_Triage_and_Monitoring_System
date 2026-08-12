@@ -164,6 +164,8 @@ The system is designed with a **local-first and controlled architecture** to imp
 - **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
 
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
+- SQL injection
+- kman wahdeh
 
 - i didnt use locally models due to commputation limits on my labtop
 ---
