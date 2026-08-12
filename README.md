@@ -44,6 +44,54 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 # The Solution
 **Automated workflow** that periodically retrieve the new alerts(that comes from POSTMAN), **enriched them** using the threat intelligence tools then **the agent** see this  enriched alerts which can call the **vector db** **RAG** if needed to see historical incidents then triage them and the workflow contiues and send emails based on the case and whats interisting is  there is  **a real time dashboard Grafana** that can be used to monitor the recent alert and the threats patterns.
 
+## Solution Overview
+
+The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
+
+### 🔄 Automated Alert Processing
+
+- The workflow **periodically retrieves new alerts** received through **POSTMAN**.
+- Each alert is automatically **enriched using Threat Intelligence (TI) tools** to provide additional context and risk-related information.
+
+### 🤖 AI-Powered Alert Investigation
+
+- The **AI Agent** analyzes the enriched alerts and performs the required investigation.
+- When additional historical context is needed, the agent can query the **Vector Database** using **RAG (Retrieval-Augmented Generation)**.
+- RAG allows the agent to retrieve and analyze **historical incidents** that may be relevant to the current alert.
+
+### 🎯 Automated Triage & Response
+
+- After gathering the necessary context, the agent **triages the alert** and determines the appropriate case classification.
+- The workflow then continues automatically based on the triage result.
+- **Emails are sent automatically** according to the case and its outcome.
+
+### 📊 Real-Time Security Dashboard
+
+- A **real-time Grafana dashboard** provides continuous visibility into the security environment.
+- The dashboard can be used to:
+  - Monitor **recent alerts**
+  - Track **detected threats**
+  - Identify **threat patterns**
+  - Observe the overall alert and investigation activity
+
+### 🚀 End-to-End Workflow
+
+**POSTMAN Alerts**  
+↓  
+**Automated Retrieval**  
+↓  
+**Threat Intelligence Enrichment**  
+↓  
+**AI Agent Investigation**  
+↓  
+**RAG → Vector DB → Historical Incidents (if needed)**  
+↓  
+**Alert Triage**  
+↓  
+**Automated Case-Based Email Notification**  
+↓  
+**Real-Time Monitoring via Grafana**
+
 **The goal isn't to replace the SOC analyst.
 It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
