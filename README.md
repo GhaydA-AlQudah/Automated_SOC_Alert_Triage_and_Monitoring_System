@@ -1,4 +1,6 @@
 # CyberSentinel — AI-Powered Automated SOC Alert Triage & Threat Monitoring
+#> **The goal isn't to replace the SOC analyst.
+#> It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 # Problem Statement
 
@@ -89,15 +91,10 @@ The system provides an **automated SOC workflow** that continuously processes, e
 ↓  
 **Real-Time Monitoring via Grafana**
 ```
-**The goal isn't to replace the SOC analyst.
-It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 <img width="1692" height="537" alt="image" src="https://github.com/user-attachments/assets/f995c466-f048-4f5b-9f6a-9febe1b4af9a" />
 
 ---
-Example
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de6e98f5-f19b-4037-bdca-fd4fb8ece748" />
 
 ---
 how to use
@@ -114,40 +111,6 @@ optimization
 1 Just the relevent alert info enter the llm as input
 2 calling tools just if neccessarfy  otherwise automation
 
-## Project Directory Structure
-
-```text
-SOC_AGENT/
-│
-├── app/                        # Main application package
-│   ├── __init__.py
-│   │
-│   ├── agent/                  # AI Core (The brains of the system)
-│   │   ├── __init__.py
-│   │   ├── pydantic_agent.py   # Agent definition, system prompts, and LLM setup
-│   │   └── schemas.py          # Pydantic models for structured JSON outputs
-│   │
-│   ├── core/                   # System configuration and security controls
-│   │   ├── __init__.py
-│   │   ├── config.py           # Environment variables, LM Studio URLs, and API keys
-│   │   └── sanitization.py     # Log scrubbing and input sanitization (Regex pipeline)
-│   │
-│   ├── database/               # Semantic memory and retrieval
-│   │   ├── __init__.py
-│   │   └── vector_db.py        # ChromaDB logic (RAG integration & context retrieval)
-│   │
-│   └── main.py                 # FastAPI server application entrypoint & API routing
-│
-├── data/                       # Directory for offline evaluation data
-│   └── raw_logs_samples.json   # Simulated or downloaded log datasets (Kaggle/GitHub)
-│
-├── tests/                      # Simulation scripts and operational testing
-│   └── mock_attacker.py        # Python script to simulate real-time cyber attacks (Postman alternative)
-│
-├── .gitignore                  # Prevents committing venv, cache, and DB storage to GitHub
-├── README.md                   # Comprehensive project documentation
-└── requirements.txt            # Project dependencies and package versions
-```
 
 ---
 # Author
