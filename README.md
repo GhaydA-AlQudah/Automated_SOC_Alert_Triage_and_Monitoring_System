@@ -72,7 +72,7 @@ The system provides an **automated SOC workflow** that continuously processes, e
   - Observe the overall alert and investigation activity
 
 ### 🚀 End-to-End Workflow
-
+```
 **POSTMAN Alerts**  
 ↓  
 **Automated Retrieval**  
@@ -88,35 +88,12 @@ The system provides an **automated SOC workflow** that continuously processes, e
 **Automated Case-Based Email Notification**  
 ↓  
 **Real-Time Monitoring via Grafana**
-
+```
 **The goal isn't to replace the SOC analyst.
 It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 <img width="1692" height="537" alt="image" src="https://github.com/user-attachments/assets/f995c466-f048-4f5b-9f6a-9febe1b4af9a" />
 
-
-## Cyber Attack Detection & Automated Response Pipeline
-
-```text
-Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
-                                                   │
-                              n8n Enrichment ◄─────┘
-        (AbuseIPDB + VirusTotal + AlienVault OTX)
-                                                   │
-                                                   ▼
-                                    api.py + Pydantic AI Agent
-                                    (RAG via ChromaDB)
-                                                   │
-                                                   ▼
-                                          PostgreSQL (verdict)
-                                          │              │
-                                   TP/Needs Review    False Positive
-                                          │              │
-                                    Email SOC Team    No Action
-                                          │
-                                          ▼
-                                  Grafana Dashboard
-```
 ---
 Example
 
