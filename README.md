@@ -99,9 +99,9 @@ The system provides an **automated SOC workflow** that continuously processes, e
 
 The system is designed with a **local-first and controlled architecture** to improve security, privacy, and predictability.
 
-### **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
+- **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
 
-### The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
+- The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 ---
 
 # Optimization
