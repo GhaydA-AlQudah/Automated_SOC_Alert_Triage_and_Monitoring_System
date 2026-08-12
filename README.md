@@ -99,22 +99,12 @@ The system is designed with a **local-first and controlled architecture** to imp
 
 ### 🛡️ Local Infrastructure
 
-- **Local LLM — LM Studio**
-  - The LLM runs locally through **LM Studio**, keeping the AI processing within the local environment.
+- **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
 
-- **Local Embedding Model**
-  - Embeddings are generated locally to avoid sending data to external embedding services.
-
-- **Local Grafana Dashboard**
-  - Monitoring and visualization are handled through a **local Grafana dashboard**.
-
+- 
 ### 🔒 Controlled LLM Access
 
-- The **LLM does not have direct access to the alerts database**.
-- It only receives the required alert information as input and produces an output.
-- The overall processing flow remains **deterministic**, with the workflow controlling what actions are performed and when.
-- This limits the LLM's access to the system and prevents it from directly interacting with the underlying alert data.
-
+- The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 ---
 
 ## ⚡ Optimization
@@ -130,11 +120,6 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
   - Processing time
   - Noise in the LLM's context
 
-### 🧰 Conditional Tool Usage
-
-- External tools are called **only when necessary**.
-- If the required information can be handled through the existing automated workflow, **no tool call is made**.
-- This approach reduces unnecessary operations while keeping the investigation process efficient.
 
 ### 🚀 Optimization Principle
 
