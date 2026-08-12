@@ -94,6 +94,68 @@ The system provides an **automated SOC workflow** that continuously processes, e
 ↓  
 **Real-Time Monitoring via Grafana**
 ```
+
+# Solution Overview
+
+The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
+
+### 📥 Automated Alert Ingestion
+
+- The workflow **periodically retrieves new alerts** received through **POSTMAN**.
+- As soon as a new alert arrives, it is **stored in PostgreSQL** to ensure reliable persistence and tracking.
+- The alert is then processed through the automated investigation workflow.
+
+### 🤖 AI-Powered Alert Investigation
+
+- The **AI Agent** analyzes the enriched alert and performs the required investigation.
+- When additional historical context is needed, the agent can query the **Vector Database** using **RAG (Retrieval-Augmented Generation)**.
+- RAG allows the agent to retrieve and analyze **historical incidents** that may be relevant to the current alert.
+- After the investigation, the alert's **status is updated in PostgreSQL** based on the agent's decision.
+
+### 🎯 Automated Triage & Response
+
+- After gathering the necessary context, the agent **triages the alert** and determines the appropriate case classification.
+- The workflow automatically updates the alert's **status and case information** in PostgreSQL.
+- **Emails are sent automatically** according to the case and its outcome.
+
+### 🔄 Reliability & Recovery
+
+- The workflow is managed through a defined **execution lifecycle** to prevent processes from remaining stuck indefinitely.
+- If an execution fails or becomes stuck, the workflow can **automatically recover or retry** based on the configured recovery mechanism.
+- This ensures that alerts remain trackable and are not lost due to temporary failures.
+
+### 📊 Real-Time Security Dashboard
+
+- A **real-time Grafana dashboard** provides continuous visibility into the security environment.
+- The dashboard can be used to:
+  - Monitor **recent alerts**
+  - Track **detected threats**
+  - Identify **threat patterns**
+  - Observe **alert statuses and investigation activity**
+
+> **Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
+
+### 🚀 End-to-End Workflow
+
+**POSTMAN Alerts**  
+↓  
+**Store New Alert in PostgreSQL**  
+↓  
+**Threat Intelligence Enrichment**  
+↓  
+**AI Agent Investigation**  
+↓  
+**RAG → Vector DB → Historical Incidents (if needed)**  
+↓  
+**Update Alert Status in PostgreSQL**  
+↓  
+**Alert Triage & Case Classification**  
+↓  
+**Automated Case-Based Email Notification**  
+↓  
+**Real-Time Monitoring via Grafana**
+
+**↻ Recovery / Retry mechanism handles failed or stuck executions**
 ---
 # Security
 
