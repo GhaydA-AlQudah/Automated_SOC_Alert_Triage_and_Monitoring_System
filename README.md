@@ -48,7 +48,7 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
-### 🔄 Automated Alert Processing
+### Automated Alert Processing
 
 - The workflow **periodically retrieves new alerts** received through **POSTMAN**.
 - Each alert is automatically **enriched using Threat Intelligence (TI) tools** to provide additional context and risk-related information.
@@ -73,6 +73,8 @@ The system provides an **automated SOC workflow** that continuously processes, e
   - Track **detected threats**
   - Identify **threat patterns**
   - Observe the overall alert and investigation activity
+    
+**Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
 
 ### 🚀 End-to-End Workflow
 ```
@@ -93,37 +95,30 @@ The system provides an **automated SOC workflow** that continuously processes, e
 **Real-Time Monitoring via Grafana**
 ```
 ---
-## 🔐 Security
+# Security
 
 The system is designed with a **local-first and controlled architecture** to improve security, privacy, and predictability.
 
-### 🛡️ Local Infrastructure
+### Local Infrastructure
 
 - **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
 
 - 
-### 🔒 Controlled LLM Access
+### Controlled LLM Access
 
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 ---
 
-## ⚡ Optimization
+# Optimization
 
 The system is optimized to reduce **LLM usage, latency, and unnecessary tool calls**.
 
-### 🎯 Relevant Information Only
-
-- Only the **relevant alert information** is provided to the LLM as input.
+### Only the **relevant alert information** is provided to the LLM as input.
 - Unnecessary data is filtered out before reaching the model.
 - This reduces:
   - Token usage
   - Processing time
   - Noise in the LLM's context
-
-
-### 🚀 Optimization Principle
-
-> **Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
 
 ---
 # Author
@@ -131,11 +126,4 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
 
-V DB, ,  شو السيناريوهات يلي بكون فيها  FP   
-
-
-# Upload 
-- db
-- vs code
-- n8n 
-- dashboard
+---
