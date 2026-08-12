@@ -1,7 +1,7 @@
 # CyberSentinel — AI-Powered Automated SOC Alert Triage & Threat Monitoring
-> **The goal isn't to replace the SOC analyst.
+> **The goal isn't to replace the SOC analyst.**
 > 
-> It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
+> **It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
 
 # Problem Statement
 
