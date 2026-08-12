@@ -41,10 +41,7 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 ---
 
-# The Solution
-**Automated workflow** that periodically retrieve the new alerts(that comes from POSTMAN), **enriched them** using the threat intelligence tools then **the agent** see this  enriched alerts which can call the **vector db** **RAG** if needed to see historical incidents then triage them and the workflow contiues and send emails based on the case and whats interisting is  there is  **a real time dashboard Grafana** that can be used to monitor the recent alert and the threats patterns.
-
-## Solution Overview
+# Solution Overview
 
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
