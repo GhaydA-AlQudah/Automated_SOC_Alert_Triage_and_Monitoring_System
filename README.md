@@ -33,10 +33,7 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 ---
 
 # The Solution
-
-Agentic workflow
-Dashboard
-Email
+**Automated workflow** that periodically retrieve the new alerts(that comes from POSTMAN), **enriched them** using the threat intelligence tools then **the agent** see this  enriched alerts which can call the **vector db** **RAG** if needed to see historical incidents then triage them and the workflow contiues and send emails based on the case and whats interisting is  there is  **a real time dashboard Grafana** that can be used to monitor the recent alert and the threats patterns.
 
 **The goal isn't to replace the SOC analyst.
 It's to make sure the analyst spends their time on the alerts that actually deserve attention.**
@@ -66,27 +63,6 @@ Postman → n8n Webhook → ingest.py (INSERT) → PostgreSQL
                                           ▼
                                   Grafana Dashboard
 ```
-# Features:
-* why chroma db
-* why x llm
-* why grafana
-* why pydantic
-* why pydantic ai
- Tech Stack 
- LLM , RA & Vector DBs, API
-- LLM
-- LM Studio
-- FastAPI
-- Webhook
-- POSTMAN
-- n8n
-- vs code
-- Vector Database
-- RAG
-- chromadb
-- uvicorn
-- aistudio.google
-- Postman
 ---
 Example
 
@@ -100,12 +76,12 @@ Security
 1 local LLM - LM Studio 
 2 Local Embedding 
 3 local grafana dashboard
+4 LLM doesnot have access to the alerts database it just can output and the process is determenistic
 
 ---
 optimization
-1 Just suspecious arrived to llm and correlated
+1 Just the relevent alert info enter the llm as input
 2 calling tools just if neccessarfy  otherwise automation
-3 شو بدخل لل LLM
 
 ## Project Directory Structure
 
@@ -148,7 +124,7 @@ SOC_AGENT/
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
 
-V DB, ترتيب الكود ولملمتهو اوتلوت ا llm ,  شو السيناريوهات يلي بكون فيها  FP  و لو  LLM  فشلبالعادة
+V DB, ,  شو السيناريوهات يلي بكون فيها  FP   
 
 
 # Upload 
