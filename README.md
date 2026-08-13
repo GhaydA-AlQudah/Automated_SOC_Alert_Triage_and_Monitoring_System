@@ -167,6 +167,7 @@ The system is designed with a **local-first and controlled architecture** to imp
 - SQL injection
 - kman wahdeh
 - Prompt Injection
+- sanitization
 
 - i didnt use locally models due to commputation limits on my labtop
 ---
