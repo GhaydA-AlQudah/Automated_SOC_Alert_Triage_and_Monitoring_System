@@ -166,6 +166,7 @@ The system is designed with a **local-first and controlled architecture** to imp
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 - SQL injection
 - kman wahdeh
+- Prompt Injection
 
 - i didnt use locally models due to commputation limits on my labtop
 ---
