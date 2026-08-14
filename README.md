@@ -86,7 +86,7 @@ The system provides an **automated SOC workflow** that continuously processes, e
 ↓  
 **AI Agent Investigation**  
 ↓  
-**RAG → Vector DB → Historical Incidents (if needed)**  
+**RAG → Vector DB → Historical Incidents (if needed)**  ANNNNNNDDDD RDB T
 ↓  
 **Alert Triage**  
 ↓  
