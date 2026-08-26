@@ -48,57 +48,6 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
-### Automated Alert Processing
-
-- The workflow **periodically retrieves new alerts** received through **POSTMAN**.
-- Each alert is automatically **enriched using Threat Intelligence (TI) tools** to provide additional context and risk-related information.
-
-### 🤖 AI-Powered Alert Investigation
-
-- The **AI Agent** analyzes the enriched alerts and performs the required investigation.
-- When additional historical context is needed, the agent can query the **Vector Database** using **RAG (Retrieval-Augmented Generation)**.
-- RAG allows the agent to retrieve and analyze **historical incidents** that may be relevant to the current alert.
-
-### 🎯 Automated Triage & Response
-
-- After gathering the necessary context, the agent **triages the alert** and determines the appropriate case classification.
-- The workflow then continues automatically based on the triage result.
-- **Emails are sent automatically** according to the case and its outcome.
-
-### 📊 Real-Time Security Dashboard
-
-- A **real-time Grafana dashboard** provides continuous visibility into the security environment.
-- The dashboard can be used to:
-  - Monitor **recent alerts**
-  - Track **detected threats**
-  - Identify **threat patterns**
-  - Observe the overall alert and investigation activity
-    
-**Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
-
-### 🚀 End-to-End Workflow
-```
-**POSTMAN Alerts**  
-↓  
-**Automated Retrieval**  
-↓  
-**Threat Intelligence Enrichment**  
-↓  
-**AI Agent Investigation**  
-↓  
-**RAG → Vector DB → Historical Incidents (if needed)**  ANNNNNNDDDD RDB T
-↓  
-**Alert Triage**  
-↓  
-**Automated Case-Based Email Notification**  
-↓  
-**Real-Time Monitoring via Grafana**
-```
-
-# Solution Overview
-
-The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
-
 ### 📥 Automated Alert Ingestion
 
 - The workflow **periodically retrieves new alerts** received through **POSTMAN**.
@@ -185,6 +134,11 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
  
 --- 
 # Example
+
+<img width="1501" height="741" alt="image" src="https://github.com/user-attachments/assets/c8a03357-7226-4a03-acf1-191d3821db66" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/95937a76-ec26-4edf-af98-26836bcfa268" />
+
 ## run
 ## result
 ---
