@@ -9,14 +9,10 @@
 
 - Modern SIEM systems generate thousands of security alerts every day.
 - A large portion of these alerts may be:
-  - Legitimate activity
-  - Expected administrative behavior
-  - Automated scanners
-  - Low-risk events
+  Expected administrative behavior, Automated scanners or Low-risk events
 
 - As a result:
-  - SOC analysts spend valuable time manually investigating alerts.
-  - Many investigated alerts ultimately require no action.
+  - SOC analysts spend valuable time manually investigating alerts that ultimately require no action.
 
 ### 2. Fighting Automated Threats with Manual Operations
 
