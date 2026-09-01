@@ -132,6 +132,7 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
 # Example
 
 
+<img width="1487" height="636" alt="image" src="https://github.com/user-attachments/assets/c037b9fc-452b-4f02-96cf-dd844c15878c" />
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de7f8f71-474e-4b5b-ab6e-8cbd0d4b6a0e" />
 
