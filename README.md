@@ -132,7 +132,7 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
 # Example
 ## n8n Workflow
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de7f8f71-474e-4b5b-ab6e-8cbd0d4b6a0e" />
+<img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/fd5b9236-9949-4e69-9864-805712d717c9" />
 
 -- 
 ## Email Alert
