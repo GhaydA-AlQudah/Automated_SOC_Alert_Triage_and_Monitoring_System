@@ -141,7 +141,8 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
 
 --
 ## Monitoring Dashboard
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4b9a99d7-90a4-4418-b01f-ba0bd99194cb" />
+
+<img width="1852" height="767" alt="image" src="https://github.com/user-attachments/assets/3ea2d417-bf81-450c-8961-0aa17ecd2b72" />
 
 ---
 # Author
