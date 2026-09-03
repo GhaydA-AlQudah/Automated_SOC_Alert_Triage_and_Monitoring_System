@@ -44,6 +44,22 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
+--- 
+# Example
+## n8n Workflow
+
+<img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/a427e6c8-8ed3-4da3-aee4-e72197e3d86a" />
+
+-- 
+## Email Alert
+
+<img width="1487" height="636" alt="image" src="https://github.com/user-attachments/assets/c037b9fc-452b-4f02-96cf-dd844c15878c" />
+
+--
+## Monitoring Dashboard
+
+<img width="1852" height="767" alt="image" src="https://github.com/user-attachments/assets/3ea2d417-bf81-450c-8961-0aa17ecd2b72" />
+
 ### 📥 Automated Alert Ingestion
 
 - The workflow **periodically retrieves new alerts** received through **POSTMAN**.
@@ -127,27 +143,8 @@ The system is optimized to reduce **LLM usage, latency, and unnecessary tool cal
   - Token usage
   - Processing time
   - Noise in the LLM's context
- 
---- 
-# Example
-## n8n Workflow
-
-<img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/a427e6c8-8ed3-4da3-aee4-e72197e3d86a" />
-
--- 
-## Email Alert
-
-<img width="1487" height="636" alt="image" src="https://github.com/user-attachments/assets/c037b9fc-452b-4f02-96cf-dd844c15878c" />
-
---
-## Monitoring Dashboard
-
-<img width="1852" height="767" alt="image" src="https://github.com/user-attachments/assets/3ea2d417-bf81-450c-8961-0aa17ecd2b72" />
-
 ---
 # Author
 **GhaydA' Alqudah**
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
-
----
