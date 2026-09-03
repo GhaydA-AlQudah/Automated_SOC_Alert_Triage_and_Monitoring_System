@@ -5,39 +5,15 @@
 
 # Problem Statement
 
+**Alert Fatigue** — Analysts become **overwhelmed**, creating an operational **bottleneck**:
+
+they lack the time to investigate everything, and end up spending valuable time manually investigating alerts that ultimately require no action. 
+
+— while alerts that are genuinely critical inestigation get buried and delayed.
+
 ### 1. Vast Amount of False Positive Alerts
 
-- Modern SIEM systems generate thousands of security alerts every day.
-- A large portion of these alerts may be:
-  Expected administrative behavior, Automated scanners or Low-risk events
-
-- As a result:
-  - SOC analysts spend valuable time manually investigating alerts that ultimately require no action.
-
 ### 2. Fighting Automated Threats with Manual Operations
-
-- Although attacks are increasingly automated, L1 SOC investigation is still heavily manual.
-- For every suspicious alert, analysts may need to:
-  - Review logs
-  - Check IP reputation
-  - Investigate context
-  - Compare historical incidents
-  - Decide
-  - Document
-  - Escalate
-
-- Doing this repeatedly across hundreds or thousands of alerts creates a major operational bottleneck.
-## Impact
-
-This leads to:
-
-Alert Fatigue — Analysts become overwhelmed by repetitive alerts.
-Delayed Response — Time spent investigating false positives means less time for genuine threats.
-Missed Threats — Critical alerts can be buried among large volumes of noise.
-High Operational Cost — More analyst time is required to maintain continuous SOC operations.
-
-The real problem isn't that SOCs lack alerts — it's that analysts lack the time to investigate all of them effectively.
-
 ---
 
 # Solution Overview
@@ -45,7 +21,6 @@ The real problem isn't that SOCs lack alerts — it's that analysts lack the tim
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
 --- 
-# Example
 ## n8n Workflow
 
 <img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/a427e6c8-8ed3-4da3-aee4-e72197e3d86a" />
@@ -126,16 +101,13 @@ The system is designed with a **local-first and controlled architecture** to imp
 
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 - SQL injection
-- kman wahdeh
 - Prompt Injection
 - sanitization
 
-- i didnt use locally models due to commputation limits on my labtop
+**NOTE: i didnt use locally models due to commputation limits on my labtop.**
 ---
 
 # Optimization
-
-The system is optimized to reduce **LLM usage, latency, and unnecessary tool calls**.
 
 ### Only the **relevant alert information** is provided to the LLM as input.
 - Unnecessary data is filtered out before reaching the model.
