@@ -20,7 +20,6 @@ they lack the time to investigate everything, and end up spending valuable time 
 
 The system provides an **automated SOC workflow** that continuously processes, enriches, investigates, and triages security alerts with minimal manual intervention.
 
---- 
 ## n8n Workflow
 
 <img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/a427e6c8-8ed3-4da3-aee4-e72197e3d86a" />
@@ -71,46 +70,22 @@ The system provides an **automated SOC workflow** that continuously processes, e
 
 > **Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
 
-### 🚀 End-to-End Workflow
-
-**POSTMAN Alerts**  
-↓  
-**Store New Alert in PostgreSQL**  
-↓  
-**Threat Intelligence Enrichment**  
-↓  
-**AI Agent Investigation**  
-↓  
-**RAG → Vector DB → Historical Incidents (if needed)**  
-↓  
-**Update Alert Status in PostgreSQL**  
-↓  
-**Alert Triage & Case Classification**  
-↓  
-**Automated Case-Based Email Notification**  
-↓  
-**Real-Time Monitoring via Grafana**
-
-**↻ Recovery / Retry mechanism handles failed or stuck executions**
 ---
 # Security
 
-The system is designed with a **local-first and controlled architecture** to improve security, privacy, and predictability.
-
-- **Local-first infrastructure:** Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
+- Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
 
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
 - SQL injection
 - Prompt Injection
 - sanitization
 
-**NOTE: i didnt use locally models due to commputation limits on my labtop.**
+**NOTE: I didnt use locally models due to commputation limits on my labtop.**
 ---
 
 # Optimization
 
-### Only the **relevant alert information** is provided to the LLM as input.
-- Unnecessary data is filtered out before reaching the model.
+- Only the **relevant alert information** is provided to the LLM as input.
 - This reduces:
   - Token usage
   - Processing time
