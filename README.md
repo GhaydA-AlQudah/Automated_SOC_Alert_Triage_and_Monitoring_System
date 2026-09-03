@@ -11,9 +11,9 @@ they lack the time to investigate everything, and end up spending valuable time 
 
 — while alerts that are genuinely critical inestigation get buried and delayed.
 
-### 1. Vast Amount of False Positive Alerts
+#### 1. Vast Amount of False Positive Alerts
 
-### 2. Fighting Automated Threats with Manual Operations
+#### 2. Fighting Automated Threats with Manual Operations
 ---
 
 # Solution Overview
