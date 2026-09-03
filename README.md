@@ -24,12 +24,12 @@ The system provides an **automated SOC workflow** that continuously processes, e
 
 <img width="1871" height="922" alt="image" src="https://github.com/user-attachments/assets/a427e6c8-8ed3-4da3-aee4-e72197e3d86a" />
 
--- 
+---
 ## Email Alert
 
 <img width="1487" height="636" alt="image" src="https://github.com/user-attachments/assets/c037b9fc-452b-4f02-96cf-dd844c15878c" />
 
---
+---
 ## Monitoring Dashboard
 
 <img width="1852" height="767" alt="image" src="https://github.com/user-attachments/assets/3ea2d417-bf81-450c-8961-0aa17ecd2b72" />
@@ -74,13 +74,10 @@ The system provides an **automated SOC workflow** that continuously processes, e
 # Security
 
 - Local LLM via **LM Studio**, local embedding model, and a **local Grafana dashboard**, keeping AI processing, embeddings, and monitoring within the local environment.
-
 - The **LLM has no direct access to the alerts database**; it only receives relevant data as input and produces output within a **deterministic workflow**.
-- SQL injection
-- Prompt Injection
-- sanitization
+- SQL injection and Prompt Injection Protection.
+- **NOTE: I didnt use locally models due to commputation limits on my labtop.**
 
-**NOTE: I didnt use locally models due to commputation limits on my labtop.**
 ---
 
 # Optimization
