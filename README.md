@@ -7,9 +7,9 @@
 
 **Alert Fatigue** — Analysts become **overwhelmed**, creating an operational **bottleneck**:
 
-they lack the time to investigate everything, and end up spending valuable time manually investigating alerts that ultimately require no action. 
+they lack the time to investigate everything, and **end up spending valuable time manually investigating** alerts that **ultimately require no action.** 
 
-— while alerts that are genuinely critical inestigation get buried and delayed.
+— while alerts that are genuinely **critical inestigation** get buried and **delayed.**
 
 #### 1. Vast Amount of False Positive Alerts
 
