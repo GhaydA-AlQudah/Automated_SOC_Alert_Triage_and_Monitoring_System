@@ -69,7 +69,10 @@ The system provides an **automated SOC workflow** that continuously processes, e
   - Observe **alert statuses and investigation activity**
 
 > **Automate whenever possible, use the LLM when needed, and call tools only when necessary.**
-
+---
+# Validation
+- Human Evaluation
+- LLM-as-judge 
 ---
 # Security
 
