@@ -92,6 +92,6 @@ The system provides an **automated SOC workflow** that continuously processes, e
   - Noise in the LLM's context
 ---
 # Author
-**GhaydA' Alqudah**
+**Ghayda Alqudah**
 
 **Computer Engineer | AI & Cyber Security Enthusiast**
